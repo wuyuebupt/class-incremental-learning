@@ -139,10 +139,12 @@ with warnings.catch_warnings(record=True) as warn_list:
         if saving_intermediate_models == True :
             if not os.path.exists(batch_models_save_dir):
                 os.mkdir(batch_models_save_dir)
-        old_train_file_path = os.path.join(train_files_dir,'K~'+str(K)+'/'+ str(b) + '_old')
-        new_train_file_path = os.path.join(train_files_dir,'K~'+str(K)+'/'+ str(b) + '_new')
-        old_val_file_path = os.path.join(dataset_files_dir, 'accumulated/val/batch' + str(b - 1))
-        new_val_file_path = os.path.join(dataset_files_dir, 'separated/val/batch' + str(b))
+        # old_train_file_path = os.path.join(train_files_dir,'K~'+str(K)+'/'+ str(b) + '_old')
+        # new_train_file_path = os.path.join(train_files_dir,'K~'+str(K)+'/'+ str(b) + '_new')
+        old_train_file_path = os.path.join(train_files_dir, str(b) + '_old')
+        new_train_file_path = os.path.join(train_files_dir, str(b) + '_new')
+        old_val_file_path = os.path.join(dataset_files_dir, 'accumulated/val/test_' + str(b - 2))
+        new_val_file_path = os.path.join(dataset_files_dir, 'separated/val/test_' + str(b - 1))
 
 
         batch_lr = lr / b
@@ -323,7 +325,8 @@ with warnings.catch_warnings(record=True) as warn_list:
         #training finished
         print('Saving model in ' + batch_models_save_dir + '.pt' + '...')
         state = {
-            'state_dict': model.state_dict(),
+            'state_dict': model_ft.state_dict(),
+            # 'state_dict': model.state_dict(),
             'optimizer': optimizer_ft.state_dict()
         }
         torch.save(state, batch_models_save_dir + '.pt')

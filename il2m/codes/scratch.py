@@ -33,6 +33,7 @@ cp = cp[os.path.basename(__file__)]
 # reading parameters
 num_workers = int(cp['num_workers'])
 num_epochs = int(cp['num_epochs'])
+print (cp['gpu'])
 gpu = int(cp['gpu'])
 train_file_path = cp['train_file_path']
 val_file_path = cp['val_file_path']

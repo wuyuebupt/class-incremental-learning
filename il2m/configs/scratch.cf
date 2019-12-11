@@ -2,8 +2,10 @@
 normalization_dataset_name = ilsvrc
 datasets_mean_std_file_path = data/datasets_mean_std.txt
 algo_name = ilsvrc_s10_batch1
-num_workers = 2
-gpu = 3 #the number of the gpu used, set to 0 if you only have one gpu
+num_workers = 6
+gpu=0 
+# #the number of the gpu used, set to 0 if you only have one gpu
+# gpu = 3 #the number of the gpu used, set to 0 if you only have one gpu
 #######
 old_batch_size= 256
 new_batch_size= 32
@@ -17,10 +19,14 @@ momentum=0.9
 weight_decay=0.0001
 patience=10
 #######
-train_file_path= data/images_list_files/ilsvrc/S~10/batch1/train.lst
-val_file_path= data/images_list_files/ilsvrc/S~10/batch1/val.lst
+train_file_path=data/ilsvrc/s10correct/batch1/train_0
+val_file_path=data/ilsvrc/s10correct/batch1/test_0
+# train_file_path= data/images_list_files/ilsvrc/S~10/batch1/train.lst
+# val_file_path= data/images_list_files/ilsvrc/S~10/batch1/val.lst
 #######
 model_load_path = None
-models_save_dir = /set/here/your/path/ilsvrc
+models_save_dir = /local1/incremental_pami2019/newcomparisonICCV/class-incremental-learning/il2m/models/
 saving_intermediate_models = False
-intermediate_models_save_dir = None
+intermediate_models_save_dir = /local1/incremental_pami2019/newcomparisonICCV/class-incremental-learning/il2m/models/intermediateModels
+# saving_intermediate_models = True
+# intermediate_models_save_dir = /local1/incremental_pami2019/newcomparisonICCV/class-incremental-learning/il2m/models/intermediateModels
