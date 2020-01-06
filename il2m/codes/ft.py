@@ -227,6 +227,7 @@ with warnings.catch_warnings(record=True) as warn_list:
         print("Number of batches in Training-set = " + str(len(train_loader)))
         print("Number of batches in Validation-set = " + str(len(val_loader)))
 
+        print (old_classes_number)
         model_ft = models.resnet18(pretrained=False, num_classes=old_classes_number)
 
         print('Loading saved model from ' + model_load_path)
