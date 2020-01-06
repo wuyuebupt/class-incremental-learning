@@ -72,3 +72,15 @@ python codes/il2m.py  data/images_list_files/ /set/here/your/path/feat_scores_ex
 2. Please delete all the comments from the configuration files, to avoid compilation errors. 
 3. Feel free to send an email to eden.belouadah@cea.fr if there is any issue with the code.
 
+
+### Updates 2020 Jan 06
+1. Update the dataset using the REAL validation set of imagenet for validation
+
+Results:
+
+First batch: Val : acc@1 = 77.52% ; acc@5 = 92.02%
+Start from second:
+
+top1 accuracies so far : [67.95, 59.16, 53.40, 48.11, 44.26]
+top5 accuracies so far : [87.33, 82.32, 78.30, 74.79, 71.85]
+
