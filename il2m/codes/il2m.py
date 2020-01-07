@@ -46,11 +46,18 @@ for b in range(1, S + 1):
     old_classes_number = (b - 1) * P
     #computation of class means for the first non-incremental state
     if b == 1 :
-        b1_train_list_path = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/batch1/train.lst')
-        b1_val_list_path = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/batch1/val.lst')
+        b1_train_list_path = os.path.join(images_list_files_path, 'batch1/train_0')
+        b1_val_list_path = os.path.join(images_list_files_path,   'batch1/test_0')
+        # b1_train_list_path = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/batch1/train.lst')
+        # b1_val_list_path = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/batch1/val.lst')
+
+
         #read the raw prediction scores for training and validation data	
-        b1_train_scores_path = os.path.join(b1_scores_path,  dataset + '/S~' + str(S) +'/train/scores')
-        b1_val_scores_path = os.path.join(b1_scores_path,  dataset + '/S~' + str(S) +'/val/scores')
+        b1_train_scores_path = os.path.join(b1_scores_path,  'train/scores')
+        print (b1_train_scores_path)
+        b1_val_scores_path = os.path.join(b1_scores_path,    'val/scores')
+        # b1_train_scores_path = os.path.join(b1_scores_path,  dataset + '/S~' + str(S) +'/train/scores')
+        # b1_val_scores_path = os.path.join(b1_scores_path,  dataset + '/S~' + str(S) +'/val/scores')
         b1_train_scores = open(b1_train_scores_path, 'r').readlines()
         b1_train_list = open(b1_train_list_path, 'r').readlines()
         val_images_paths_file = b1_val_list_path
@@ -80,18 +87,26 @@ for b in range(1, S + 1):
 
         ################################
         #read data for old and new classes for the current incremental state
-        old_train_images_paths_file = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/unbalanced/train'+'/K~' + str(K) + '/' + str(b) + '_old')
-        new_train_images_paths_file = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/unbalanced/train'+'/K~' + str(K) + '/' + str(b) + '_new')
-        old_train_images_scores_file = os.path.join(scores_path, dataset + '/S~' + str(S) + '/K~' + str(K) + '/train/batch' + str(b) + '_old/scores')
-        new_train_images_scores_file = os.path.join(scores_path, dataset + '/S~' + str(S) + '/K~' + str(K) + '/train/batch' + str(b) + '_new/scores')
+        old_train_images_paths_file = os.path.join(images_list_files_path,  'unbalanced/train'+'/k' + str(K) + '/' + str(b) + '_old')
+        new_train_images_paths_file = os.path.join(images_list_files_path,  'unbalanced/train'+'/k' + str(K) + '/' + str(b) + '_new')
+        old_train_images_scores_file = os.path.join(scores_path,  'train/batch' + str(b) + '_old/scores')
+        new_train_images_scores_file = os.path.join(scores_path,  'train/batch' + str(b) + '_new/scores')
+
+        # old_train_images_paths_file = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/unbalanced/train'+'/K~' + str(K) + '/' + str(b) + '_old')
+        # new_train_images_paths_file = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/unbalanced/train'+'/K~' + str(K) + '/' + str(b) + '_new')
+        # old_train_images_scores_file = os.path.join(scores_path, dataset + '/S~' + str(S) + '/K~' + str(K) + '/train/batch' + str(b) + '_old/scores')
+        # new_train_images_scores_file = os.path.join(scores_path, dataset + '/S~' + str(S) + '/K~' + str(K) + '/train/batch' + str(b) + '_new/scores')
 
         old_train_images_paths = open(old_train_images_paths_file, 'r').readlines()
         new_train_images_paths = open(new_train_images_paths_file, 'r').readlines()
         old_train_images_scores = open(old_train_images_scores_file, 'r').readlines()
         new_train_images_scores = open(new_train_images_scores_file, 'r').readlines()
 
-        val_images_paths_file = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/accumulated/val/batch' + str(b))
-        val_images_scores_file = os.path.join(scores_path,  dataset + '/S~' + str(S) + '/K~' + str(K) + '/val/batch' + str(b) + '/scores')
+       
+        val_images_paths_file = os.path.join(images_list_files_path,  'accumulated/val/test_' + str(b-1))
+        val_images_scores_file = os.path.join(scores_path, 'val/batch' + str(b-1) + '/scores')
+        # val_images_paths_file = os.path.join(images_list_files_path, dataset + '/S~' + str(S) + '/accumulated/val/batch' + str(b))
+        # val_images_scores_file = os.path.join(scores_path,  dataset + '/S~' + str(S) + '/K~' + str(K) + '/val/batch' + str(b) + '/scores')
 
         #computation of class means for new classes of the current state.
         #will be used to rectify scores in subsequent states, when these classes become old ones

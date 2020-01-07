@@ -1,7 +1,7 @@
 [features_extraction_ft.py]
 num_workers = 6
 batch_size = 128
-gpu = 1
+gpu = 0
 features_size = 512
 normalization_dataset_name = ilsvrc
 first_batch_number = 2
@@ -9,7 +9,11 @@ last_batch_number = 10
 P = 100 #number of classes per incremental state
 S = 10 #total number of states
 datasets_mean_std_file_path = data/datasets_mean_std.txt
-models_load_path_prefix = /set/here/your/path/models/ift/ilsvrc/S~10/K~5000/ift_ilsvrc_s10_5k_b
-train_images_list_dir = data/images_list_files/ilsvrc/S~10/unbalanced/train/K~5000/
-val_images_list_dir = data/images_list_files/ilsvrc/S~10/accumulated/val
-destination_dir = /set/here/your/path/feat_scores_extract_for_ft/ilsvrc/S~10/K~5000
+models_load_path_prefix = models/ilsvrc/s10correct/k20000/ift_ilsvrc_s10_20k_b
+train_images_list_dir = data/ilsvrc/s10correct/unbalanced/train/k20000/
+val_images_list_dir = data/ilsvrc/s10correct/accumulated/val
+destination_dir = scores/ilsvrc/s10correct/ft/k20000
+# models_load_path_prefix = /set/here/your/path/models/ift/ilsvrc/S~10/K~5000/ift_ilsvrc_s10_5k_b
+# train_images_list_dir = data/images_list_files/ilsvrc/S~10/unbalanced/train/K~5000/
+# val_images_list_dir = data/images_list_files/ilsvrc/S~10/accumulated/val
+# destination_dir = /set/here/your/path/feat_scores_extract_for_ft/ilsvrc/S~10/K~5000

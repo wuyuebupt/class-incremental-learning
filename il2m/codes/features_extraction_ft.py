@@ -87,8 +87,13 @@ with warnings.catch_warnings(record=True) as warn_list:
         print('*'*50)
 
         print('-------> Val data')
-        images_list = os.path.join(val_images_list_dir, 'batch'+str(b))
-        batch_destination_dir = os.path.join(val_destination_dir, 'batch'+str(b))
+        images_list = os.path.join(val_images_list_dir, 'test_' + str(b-1))
+        batch_destination_dir = os.path.join(val_destination_dir, 'batch'+str(b-1))
+        # old_train_file_path = os.path.join(train_files_dir, str(b) + '_old')
+        # new_train_file_path = os.path.join(train_files_dir, str(b) + '_new')
+        # old_val_file_path = os.path.join(dataset_files_dir, 'accumulated/val/test_' + str(b - 2))
+        # new_val_file_path = os.path.join(dataset_files_dir, 'separated/val/test_' + str(b - 1))
+
         if not os.path.exists(batch_destination_dir):
             os.makedirs(batch_destination_dir)
 
