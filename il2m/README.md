@@ -79,8 +79,22 @@ python codes/il2m.py  data/images_list_files/ /set/here/your/path/feat_scores_ex
 Results:
 
 First batch: Val : acc@1 = 77.52% ; acc@5 = 92.02%
-Start from second:
 
-top1 accuracies so far : [67.95, 59.16, 53.40, 48.11, 44.26]
-top5 accuracies so far : [87.33, 82.32, 78.30, 74.79, 71.85]
+Results after several times break-resume:
+```
+top1 accuracies so far : [77.52, 67.95, 59.16, 53.40, 48.11, 44.26, 41.88, 39.34, 37.82, 35.12]
+top5 accuracies so far : [92.02, 87.33, 82.32, 78.30, 74.79, 71.85, 70.96, 68.82, 66.66, 63.98]
+```
+
+Some auto-generated results
+```
+top1 accuracies so far : [44.26, 41.88857142857143, 39.345, 37.824444444444445, 35.152]
+top5 accuracies so far : [71.85666666666667, 70.96857142857142, 68.825, 66.66222222222223, 63.984]
+TOP1 validation accuracies = [44.26, 41.888, 39.345, 37.824, 35.152]
+TOP1 mean incremental accuracy = 39.694003174603175
+***************
+TOP5 validation accuracies = [71.856, 70.968, 68.825, 66.662, 63.984]
+TOP5 mean incremental accuracy = 68.45929206349206
+```
+
 
